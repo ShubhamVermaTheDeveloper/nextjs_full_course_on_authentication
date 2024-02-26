@@ -1,8 +1,10 @@
+import conf from "@/conf";
 import mongoose from "mongoose";
 
 export async function connect(){
   try {
-    mongoose.connect(process.env.MONGO_URI!);
+    mongoose.connect(conf.mongodburi!);
+    console.log(conf.mongodburi!)
     const connection = mongoose.connection;
     connection.on('connected', () => {
       console.log("MongoDB connected successfully");
